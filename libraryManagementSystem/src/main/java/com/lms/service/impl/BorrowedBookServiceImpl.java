@@ -55,8 +55,7 @@ public class BorrowedBookServiceImpl implements BorrowedBookService {
 
     @Override
     public void deleteBookById(List<Integer> bookIds) {
-        LibraryBook libraryBookToSave =null;
-        BorrowedBook borrowedBook = null;
+        LibraryBook libraryBookToSave = new LibraryBook();
 
         for (int i=0;i<bookIds.size();i++){
             Optional<BorrowedBook> book = borrowedBookRepository.findById(bookIds.get(i));
