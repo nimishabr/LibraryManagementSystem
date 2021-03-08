@@ -1,24 +1,24 @@
 package com.lms.dto;
 
 public class BorrowedBookDto {
-    private Integer BorrowedBookId;
-    private String BorrowedBookName;
+    private Integer borrowedBookId;
+    private String borrowedBookName;
     private String author;
 
     public Integer getBorrowedBookId() {
-        return BorrowedBookId;
+        return borrowedBookId;
     }
 
     public void setBorrowedBookId(Integer borrowedBookId) {
-        BorrowedBookId = borrowedBookId;
+        this.borrowedBookId = borrowedBookId;
     }
 
     public String getBorrowedBookName() {
-        return BorrowedBookName;
+        return borrowedBookName;
     }
 
     public void setBorrowedBookName(String borrowedBookName) {
-        BorrowedBookName = borrowedBookName;
+        this.borrowedBookName = borrowedBookName;
     }
 
     public String getAuthor() {

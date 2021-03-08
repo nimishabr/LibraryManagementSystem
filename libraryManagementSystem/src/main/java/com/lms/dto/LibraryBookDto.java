@@ -1,7 +1,5 @@
 package com.lms.dto;
 
-import javax.persistence.Column;
-
 public class LibraryBookDto {
     private Integer bookId;
     private String bookName;

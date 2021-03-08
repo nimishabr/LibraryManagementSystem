@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Service
 public class BorrowedBookServiceImpl implements BorrowedBookService {
@@ -22,6 +23,7 @@ public class BorrowedBookServiceImpl implements BorrowedBookService {
     @Autowired
     @Qualifier("libraryBookRepository")
     LibraryBookRepository libraryBookRepository;
+    private static final Logger LOGGER = Logger.getLogger(BorrowedBookServiceImpl.class.getName());
 
     @Override
     public BorrowedBook borrowBook(BorrowedBookDto borrowedBookDto) {
@@ -34,7 +36,7 @@ public class BorrowedBookServiceImpl implements BorrowedBookService {
             borrowedBookRepository.save(borrowedBookToSave);
             libraryBookRepository.deleteById(borrowedBookDto.getBorrowedBookId());
         }else {
-            System.out.println("No such book exists in library");
+            LOGGER.info("No such book exists in library");
         }
         return null;
     }
@@ -55,8 +57,7 @@ public class BorrowedBookServiceImpl implements BorrowedBookService {
 
     @Override
     public void deleteBookById(List<Integer> bookIds) {
-        LibraryBook libraryBookToSave =null;
-        BorrowedBook borrowedBook = null;
+        LibraryBook libraryBookToSave =new LibraryBook();
 
         for (int i=0;i<bookIds.size();i++){
             Optional<BorrowedBook> book = borrowedBookRepository.findById(bookIds.get(i));
@@ -68,7 +69,7 @@ public class BorrowedBookServiceImpl implements BorrowedBookService {
                 libraryBookRepository.save(libraryBookToSave);
 
             }else {
-                System.out.println("No book found");
+                LOGGER.info("No book found");
             }
             }
         }

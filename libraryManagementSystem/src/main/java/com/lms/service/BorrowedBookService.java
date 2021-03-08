@@ -3,7 +3,6 @@ package com.lms.service;
 import com.lms.dto.BorrowedBookDto;
 import com.lms.model.BorrowedBook;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface BorrowedBookService {

@@ -8,27 +8,27 @@ public class BorrowedBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "library_id_generator")
     @Column(name = "borrowedBookId",updatable = false, nullable = false)
-    private Integer BorrowedBookId;
+    private Integer borrowedBookId;
     @Column(name = "author")
     private String author;
 
-    @Column(name = "BorrowedBookName")
-    private String BorrowedBookName;
+    @Column(name = "borrowedBookName")
+    private String borrowedBookName;
 
     public Integer getBorrowedBookId() {
-        return BorrowedBookId;
+        return borrowedBookId;
     }
 
     public void setBorrowedBookId(Integer borrowedBookId) {
-        BorrowedBookId = borrowedBookId;
+        this.borrowedBookId = borrowedBookId;
     }
 
     public String getBorrowedBookName() {
-        return BorrowedBookName;
+        return borrowedBookName;
     }
 
     public void setBorrowedBookName(String borrowedBookName) {
-        BorrowedBookName = borrowedBookName;
+        this.borrowedBookName = borrowedBookName;
     }
 
     public String getAuthor() {

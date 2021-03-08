@@ -1,7 +1,6 @@
 package com.lms.conroller;
 
 import com.lms.dto.BorrowedBookDto;
-import com.lms.dto.LibraryBookDto;
 import com.lms.model.BorrowedBook;
 import com.lms.model.LibraryBook;
 import com.lms.service.BorrowedBookService;
@@ -24,8 +23,8 @@ public class BookController {
     BorrowedBookService borrowedBookService;
 
     @GetMapping(value = "/getBooks")
-    public ResponseEntity<?> getAllBooks(@RequestBody Integer bookId) {
-        List<LibraryBook> libraryBook =new ArrayList<LibraryBook>();
+    public ResponseEntity<?> getAllBooks() {
+        List<LibraryBook> libraryBook =null;
         try {
             libraryBook = libraryBookService.getAllBooks();
             return new ResponseEntity<>(libraryBook, HttpStatus.FOUND);
@@ -36,7 +35,6 @@ public class BookController {
 
     @PostMapping(value = "/borrowBook")
     public ResponseEntity<?> borrowBook(@RequestBody BorrowedBookDto borrowedBookDto) {
-        ErrorResponse errorResponse = null;
         try {
             BorrowedBook borrowedBook = borrowedBookService.borrowBook(borrowedBookDto);
             return new ResponseEntity<>(borrowedBook, HttpStatus.CREATED);
@@ -47,7 +45,6 @@ public class BookController {
 
     @PutMapping(value = "/copyBook/{bookId}")
     public ResponseEntity<?> copyBook(@PathVariable Integer bookId ) {
-        ErrorResponse errorResponse = null;
         try {
             BorrowedBook borrowedBook = borrowedBookService.copyBook(bookId);
             return new ResponseEntity<>(borrowedBook, HttpStatus.CREATED);
